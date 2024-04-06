@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESIGN-LAYOUT</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow-x: hidden;
+            background-color: aquamarine;
+        }
+        header{
+            position: sticky;
+            top: 0px;
+            width: 100vw;
+            box-sizing: border-box;
+        }
+        nav{
+            background-color: aqua;
+        }
+        nav ul{
+            display: flex;
+            width: 500px;
+            margin: auto;
+        }
+        nav ul li{
+            padding: 20px;
+            list-style-type: none;
+            color: blue;
+            font-weight: bolder;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        main{
+            box-sizing: border-box;
+            width: 100%;
+        }
+        .container{
+            width: 100vw;
+            display: flex;
+            padding: 20px;
+        }
+        .card{
+            width: 500px;
+            height: 500px;
+            background-color: blanchedalmond;
+            margin: auto;
+        }
+        .banner{
+            font-size: 50px;
+            margin: auto;
+            width: 70vw;
+            text-align: center;
+            border-radius: 30px;
+            border: 5px solid black;
+            margin-top: 50px;
+        }
+
+        footer{
+            margin-top: 30px;
+            background-color: aqua;
+            height: 50px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .logo{
+            background-color: black;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            position: fixed;
+            top:90vh;
+            left: 95vw;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+        <div class="banner">HELLO CODERS.....</div>
+        <div class="banner">HELLO CODERS.....</div>
+    </main>
+    <footer>
+        All Rights reserved by Coders.... &copy
+    </footer>
+    <div class="logo"></div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS - FLEX BOX</title>
+    <style>
+      .container {
+        border: 5px solid black;
+        height: 80vh;
+        background-color: antiquewhite;
+        display: flex; /* flex direction by default set to row */
+        /* justify-content: center; */
+        align-items: center;
+        /* flex-direction: column; */
+        /* flex-direction: column-reverse; */
+        /* flex-direction: row-reverse; */
+        flex-wrap: wrap;
+        /* flex-wrap: wrap-reverse; */
+        /* flex-flow:column wrap; */
+
+        /* align-content: center; */
+        gap: 20px 30px;
+      }
+      .items {
+        width: 95px;
+        height: 95px;
+        background-color: rgb(255, 183, 0);
+        margin: 5px;
+        font-size: 50px;
+        /* order: 1; */
+        flex-grow: 2;
+      }
+      .item1 {
+        order: 5;
+      }
+      .item3 {
+        /* order: 4; */
+        align-self: flex-end;
+      }
+      .item4 {
+        order: 3;
+        /* flex-shrink: 2; */
+        align-self: flex-start;
+      }
+      .item2 {
+        flex-grow: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="items item1">1</div>
+        <div class="items item2">2</div>
+        <div class="items item3">3</div>
+        <div class="items item4">4</div>
+        <div class="items"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+        <div class="items"></div>
+      </div>
+    </main>
+  </body>
+</html>

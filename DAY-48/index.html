@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+<body>
+    <div class="flex gap-3 flex-col md:flex-row bg-slate-400">
+        <div class="bg-sky-600 basis-1/2 text-center">1</div>
+        <div class="bg-sky-600 basis-1/4 text-center">2</div>
+        <div class="bg-sky-600 basis-1/4 hover:basis-1/2 text-center">3</div>
+    </div>
+    <!-- flex-row-reverse
+    flex-row
+    flex-col-reverse
+    flex-col -->
+    <div class="flex gap-1 flex-wrap bg-slate-400 mt-10">
+        <div class="bg-sky-600 basis-1/2 text-center">1</div>
+        <div class="bg-sky-600 basis-1/2 text-center">2</div>
+        <div class="bg-sky-600 hover:grow basis-1/2 text-center">3</div>
+        <div class="bg-sky-600 hover:-order-1 basis-1/2 text-center">4</div>
+        <div class="bg-sky-600 basis-1/2 text-center">5</div>
+    </div>
+
+    <!-- GRID LAYOUT -->
+    <div class="gap-4 mt-11 grid grid-flow-col grid-rows-4 ">
+        <div class="bg-sky-600 text-center">1</div>
+        <div class="bg-sky-600 text-center">2</div>
+        <div class="bg-sky-600 text-center">3</div>
+        <div class="bg-sky-600 text-center col-span-2">4</div>
+        <div class="bg-sky-600 text-center">5</div>
+        <div class="bg-sky-600 text-center">6</div>
+        <div class="bg-sky-600 text-center col-span-2">7</div>
+        <div class="bg-sky-600 text-center">8</div>
+        <div class="bg-sky-600 text-center">9</div>
+    </div>
+</body>
+</html>

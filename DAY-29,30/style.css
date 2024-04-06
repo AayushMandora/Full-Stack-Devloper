@@ -1,0 +1,405 @@
+* {
+    color: white;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 10px;
+}
+
+/* This is for left first*/
+.left {
+    height: 86.5vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.first {
+    background-color: #121212;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.ul {
+    display: grid;
+    align-content: center;
+    flex-grow: 1;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: 2fr 0.2fr;
+    padding: 0px;
+}
+
+.ul li {
+    list-style: none;
+    font-weight: bold;
+}
+
+.fimg {
+    height: 20px;
+    width: 30px;
+}
+
+/* This is for left second */
+.second {
+    background-color: #121212;
+    height: 63vh;
+    border-radius: 10px;
+}
+
+.library {
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.library>h3 {
+    opacity: 50%;
+}
+
+#lib,
+#add {
+    height: 40%;
+    object-fit: cover;
+    opacity: 50%;
+}
+
+.scroll {
+    height: 50%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.scroll::-webkit-scrollbar {
+    background: none;
+}
+
+.card {
+    height: 70%;
+    margin: 20px 10px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+}
+
+#text1 {
+    font-weight: bold;
+}
+
+.btn {
+    color: black;
+    border: none;
+    border-radius: 20px;
+    height: 100px;
+    width: 50%;
+    font-weight: 700;
+}
+
+#cookie {
+    margin: 40px 20px;
+    color: grey;
+    font-size: 15px;
+}
+
+#langauge {
+    width: 30%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid gray;
+    margin: 0px 20px;
+    column-gap: 5px;
+}
+
+#world {
+    height: 70%;
+}
+
+/* This is right section */
+.right {
+    background-color: #242424;
+    height: 86.5vh;
+    border-radius: 10px;
+    border-top-left-radius: 20px;
+}
+
+.nav {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #121212;
+    height: 13%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lr {
+    width: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.lrbtn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lrimg {
+    height: 80%;
+    width: 80%;
+}
+
+.loginbutton {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.option{
+    width: auto;
+    display: flex;
+}
+
+.option li{
+    list-style: none;
+    margin-left: 10px;
+    font-size: 18px;
+    color: grey;
+    font-weight: bold;
+}
+
+#btn1 {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    color: grey;
+    font-weight: bold;
+}
+
+#btn2 {
+    color: black;
+    background-color: white;
+    border: none;
+    height: 70%;
+    padding: 0px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Main content */
+.main {
+    height: 87%;
+}
+
+.top {
+    margin: 0px;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#stext {
+    margin: 0px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+#show {
+    margin-right: 20px;
+}
+
+/* Songs card */
+.cards {
+    padding: 20px;
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: auto;
+    row-gap: 20px;
+}
+
+.card::-webkit-scrollbar {
+    background: none;
+}
+
+.songcard {
+    height: 50vh;
+    width: 15vw;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.songimg {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.songtitle {
+    width: 100%;
+    font-size: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.songdisc {
+    margin-top: -10px;
+    height: 14%;
+    width: 100%;
+    font-size: 90%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.playbtn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1ed760;
+    right: 12%;
+    top: 51%;
+    display: none;
+}
+.playbtn>img {
+    height: 50%;
+    object-fit: cover;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.playbar{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playbtns{
+    display: flex;
+    justify-content: center;
+}
+.playbtns button{
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#playbtn>img{
+    filter: invert(1);
+}
+
+/* Footer section */
+.footer {
+    width: 100%;
+    height: 10vh;
+    margin-top: 10px;
+    grid-column: span 2;
+    background-image: linear-gradient(90deg, #af2896, #509bf5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text3 {
+    line-height: 7px;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: large;
+}
+
+#lastbtn {
+    color: black;
+    border: none;
+    background-color: white;
+    border-radius: 30px;
+    height: 80%;
+    width: 13%;
+    margin-right: 20px;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+/* All Hover Effects */
+#lib:hover,
+.library>h3:hover,
+#add:hover {
+    opacity: 100%;
+}
+
+#cookie:hover,
+#stext:hover,
+#show:hover {
+    text-decoration: underline;
+}
+
+#langauge:hover {
+    border: 1px solid white;
+    transform: scale(1.1);
+}
+
+#btn1:hover,
+.option li:hover{
+    color: white;
+}
+
+#btn2:hover,
+#lastbtn:hover,
+.btn:hover {
+    transform: scale(103%);
+}
+
+.songcard:hover {
+    background-color: #72727249;
+    .playbtn{
+        display: block;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

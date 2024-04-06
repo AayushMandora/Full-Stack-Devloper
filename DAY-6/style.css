@@ -1,0 +1,41 @@
+/* This is External CSS file */
+nav{
+    background-color: red;
+    color: yellow;  
+    font-size: 30px; 
+}
+
+/* Selectors */
+
+/* Element selector */
+p{
+    background-color: aqua;
+    font-size: 40px;
+}
+/* Id selector */
+#p2{
+    color: red;
+    background-color: yellow;
+}
+/* Class selector */
+.h2{
+    background-color: black;
+    color: white;
+}
+/* Universal selector */
+*{
+    margin: 0px;
+}
+/* Grouping selector */
+label,h3{
+    background-color: blanchedalmond;
+    color: brown;
+    font-style: italic;
+    font-size: 60px;
+}
+/* Pseudo Selector */
+a:visited{color:black;}
+a:link{color:red;}
+a:active{background-color: green;}
+a:hover{background-color: aqua;}
+p::first-letter{color: yellow; background-color: red;}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-EXERCISE-4</title>
+    <style>
+        .box{
+            border: 2px solid black;
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <!-- Give random color and background color to boxes  
+    using DOM(Document Object Model)-->
+    <div class="container">
+        <div class="box" id="Box1">Box-1</div>
+        <div class="box" id="Box2">Box-2</div>
+        <div class="box" id="Box3">Box-3</div>
+        <div class="box" id="Box4">Box-4</div>
+        <div class="box" id="Box5">Box-5</div>
+    </div>
+
+    <script>
+        let r,g,b;
+        // Random Color Function
+        function  random(){
+            r=Math.floor(Math.random() * 255);
+            g=Math.floor(Math.random() * 255);
+            b=Math.floor(Math.random() * 255);
+            color="rgb("+r+","+g+","+b+")";
+            return color;
+        }
+
+        // set random text color
+        document.getElementById("Box1").style.color=(random());
+        document.getElementById("Box2").style.color=(random());
+        document.getElementById("Box3").style.color=(random());
+        document.getElementById("Box4").style.color=(random());
+        document.getElementById("Box5").style.color=(random());
+
+        // set random backgroundcolor
+        document.getElementById("Box1").style.backgroundColor=(random());
+        document.getElementById("Box2").style.backgroundColor=(random());
+        document.getElementById("Box3").style.backgroundColor=(random());
+        document.getElementById("Box4").style.backgroundColor=(random());
+        document.getElementById("Box5").style.backgroundColor=(random());
+    </script>
+</body>
+</html>

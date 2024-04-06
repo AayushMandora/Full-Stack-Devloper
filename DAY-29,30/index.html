@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOTIFY-CLONE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <div class="left">
+        <div class="first">
+            <div class="logo">
+                <a class="svg" href="">
+                    <img class="cursor" src="./images/logo.svg" alt="">
+                </a>
+            </div>
+            <ul class="ul">
+                <img class="fimg cursor" src="./images/home.svg" alt="">
+                <li class="cursor">Home</li>
+                <img class="fimg" src="./images/search.svg" alt="">
+                <li class="cursor">Search</li>
+            </ul>
+        </div>
+        <div class="second">
+            <div class="library">
+                <img id="lib" class="cursor" src="./images/library.svg" alt="">
+                <h3 class="cursor">Your Library</h3>
+                <img id="add" class="cursor" src="./images/add.svg" alt="">
+            </div>
+            <div class="scroll">
+                <div class="card">
+                    <div class="text">
+                        <p id="text1">Create your first playlist</p>
+                        <p>It’s easy, we’ll help you</p>
+                    </div>
+                    <button class="btn cursor">Create playlist</button>
+                </div>
+                <div class="card">
+                    <div class="text">
+                        <p id="text1">Let’s find some podcasts to follow</p>
+                        <p>We’ll keep you updated on new episodes</p>
+                    </div>
+                    <button class="btn cursor">Browse podcasts</button>
+                </div>
+            </div>
+            <p id="cookie" class="cursor">Cookies</p>
+            <button id="langauge" class="cursor"><img id="world" src="./images/world.svg" alt="">English</button>
+        </div>
+    </div>
+    <div class="right">
+        <div class="nav">
+            <div class="lr">
+                <button class="lrbtn cursor"><img class="lrimg" src="./images/left.svg" alt=""></button>
+                <button class="lrbtn cursor"><img class="lrimg" src="./images/right.svg" alt=""></button>
+            </div>
+            <div class="loginbutton">
+                <ul class="option">
+                    <li class="cursor">Premium</li>
+                    <li class="cursor">Support</li>
+                    <li class="cursor">Download</li>
+                </ul>
+                <button id="btn1" class="cursor">Sing Up</button>
+                <button id="btn2" class="cursor">Log in</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="top">
+                <h2 id="stext" class="cursor">Spotify Playlists</h2>
+                <p id="show" class="cursor">Show all</p>
+            </div>
+            <div class="cards" id="cards">
+                <div class="songcard cursor">
+                    <img class="songimg" src="./images/songimg.jpg" alt="">
+                    <div class="playbtn"><img src="./images/playbtn.svg" alt=""></div>
+                    <h3 class="songtitle">Dinner with Friends</h3>
+                    <p class="songdisc">The perfect soundtrack to those long nights over dinner</p>
+                </div>
+            </div>
+            <div class="playbar">
+                <div class="playbtns">                    
+                    <button class="cursor" id="pbtn"><img class="lrimg" src="./images/left.svg" alt=""></button>
+                    <button class="cursor" id="playbtn"><img src="./images/playbtn.svg" alt=""></button>
+                    <button class="cursor" id="nbtn"><img class="lrimg" src="./images/right.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer cursor"> 
+        <div class="text3">
+            <p>Preview of Spotify</p>
+            <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+        </div>
+        <button id="lastbtn" class="cursor">Sign up for free</button>
+    </div>
+    </div>
+    <script src="javascript.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0" />
+    <title>CSS - SIZING UNIT</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+      }
+      body {
+        font-size: 20px;
+      }
+      div {
+        border: 10px solid;
+        margin: auto;     }
+      .px {
+        width: 200px;
+      }
+      .vhvw {
+        height: 80vh; /* viewheight  */
+        width: 80vw; /* viewwidth */
+      }
+      .em {
+        font-size: 2em;
+        /* This multiply em size by given size */
+      }
+      .rem {
+        font-size: 2rem;
+        /* This multiply rem size by root size */
+      }
+      .vmin {
+        width: 50vmin;
+        /* min-height: 30px; */
+      }
+      .vmax {
+        height: 50vmax;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="px rem">THIS IS DIV</div>
+    <div class="vhvw em">THIS IS VH & VW SIZING</div>
+    <div class="vmin vmax">
+      THIS IS VMIN & VMAX SIZING
+    </div>
+  </body>
+</html>

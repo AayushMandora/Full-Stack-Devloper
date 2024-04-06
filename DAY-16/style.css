@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+}
+
+main {
+    background-image: url("assets/background.jpg");
+    height: 100vh;
+    box-sizing: border-box;
+    background-size: cover;
+    box-shadow: 30px 30px 1000px black inset;
+    position: relative;
+    z-index: 0;
+}
+
+.box {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: black;
+    opacity: 0.70;
+    z-index: -1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    padding: 20px;
+}
+
+nav h1 {
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+    color: rgb(229, 9, 20);
+    font-size: 2.5em;
+    box-sizing: border-box;
+}
+
+.select {
+    background: transparent;
+    font-weight: bold;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.select option {
+    color: black;
+}
+
+.right button {
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}
+
+main section {
+    color: white;
+    height: 80vh;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content p,
+h1,
+h3 {
+    text-align: center;
+    margin: 10px;
+}
+
+.content h1 {
+    font-size: 3rem;
+}
+
+.content p {
+    font-size: 1.5rem;
+}
+
+.content h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.content input {
+    height: 37px;
+    width: 300px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid gray;
+    color: white;
+    padding: 5px;
+    background-color: rgba(41, 40, 40, 0.735);
+}
+
+input::placeholder {
+    color: white;
+    font-size: 1rem;
+}
+
+.content button {
+    height: 50px;
+    width: 200px;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 10px;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.email {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.section1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: black;
+    color: white;
+}
+
+.section1 h1 {
+    font-size: 3rem;
+    margin: 0%;
+}
+
+.section1 .p {
+    font-size: 1.9rem;
+    margin: 0%;
+}
+
+.text {
+    width: 40%;
+    padding: 10px;
+}
+
+.text .h1,
+.p {
+    text-align: left;
+}
+
+.media {
+    height: 400px;
+    width: 600px;
+    position: relative;
+    z-index: 0;
+}
+
+.img {
+    height: 400px;
+    width: 600px;
+    object-fit: cover;
+}
+
+.video1 {
+    height: 246px;
+    width: 440px;
+    object-fit: cover;
+    position: absolute;
+    top: 69px;
+    left: 78px;
+    z-index: -1;
+}
+
+.video2 {
+    height: 210px;
+    width: 371px;
+    object-fit: cover;
+    position: absolute;
+    top: 24px;
+    left: 112px;
+    z-index: -1;
+}
+
+.questions {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.questions .heading {
+    font-size: 3rem;
+}
+
+.ques {
+    height: 70px;
+    width: 73vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.354);
+    margin: 5px;
+    padding: 7px;
+}
+
+.ques .qtext {
+    font-size: 1.5rem;
+}
+
+.email1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email1 input {
+    height: 37px;
+    width: 300px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid gray;
+    color: white;
+    padding: 5px;
+    background-color: rgba(41, 40, 40, 0.735);
+}
+
+.email1 button {
+    height: 50px;
+    width: 200px;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-left: 10px;
+    border: none;
+    font-size: 1.5rem;
+}
+
+.email1 {
+    margin: 20px;
+}
+
+.h3 {
+    font-size: 1.2rem;
+    margin-top: 30px;
+}
+
+footer {
+    background-color: black;
+    color: grey;
+    padding: 70px 0 70px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    width: 80vw;
+}
+
+footer a {
+    color: grey;
+}
+
+.container {
+    display: flex;
+    margin: 20px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.container .footerp {
+    width: 25%;
+}
+
+.footer .select {
+    margin: 0;
+}
+
+.footerp {
+    margin-top: 20px;
+}
+
+hr {
+    height: 5px;
+    background-color: gray;
+}

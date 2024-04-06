@@ -1,0 +1,33 @@
+** FULL STACK DEVLOPER **
+
+-> HTML
+-> CSS
+-> Java Script
+-> FRAMEWORKS
+	=> CSS FRAMEWORK "BOOTSTRAP"
+	=> JS FRAMEWORK "REACT"
+->  BACKEND 
+	=> FRAMEWORK "Django","Node"
+	=> DataBases "MySQL","MangoDB"
+-> Popular Tech Stack
+	=> MERN >>> (MongoDB,ExpressJS,React,NodeJS)
+-> Build Projects
+	>>> GSoc Project setting up and issue solving 
+	>>> Building Paytm/Wallet End to End
+  
+*************************************************
+
+1) MERN >>> (MongoDB,ExpressJS,React,NodeJS)
+2) FrontEnd Devlopment  
+	2.1 HTML
+	2.2 CSS
+		2.2.1 Bootstrap
+		2.2.2 Tailwind CSS
+	2.3 JavaScript
+	2.4 React
+3) Backend Devlopment
+	3.1 Frameworks (Node.JS,Express.JS)
+4) Database 
+	4.1 MongoDB
+5) Version Control (GitHub)
+6) Build Projects

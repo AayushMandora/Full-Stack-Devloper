@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Selectors in CSS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            font-size: 30px;
+        }
+        p:first-child{
+            color: aqua;
+        }
+        p:nth-child(even)
+        {
+            color: red;
+        }
+        p::first-letter{
+            color: blue;
+        }
+        p:first-child::first-line{
+            color: blueviolet;
+        }
+        .container::after{
+            content: "Coding is Good";
+            font-size: 30px;
+            color: rgb(242, 4, 255);
+        }
+        .container::before{
+            content: "Start Coding";
+            font-size: 30px;
+            color: rgb(242, 4, 255);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi laborum natus perferendis quos eos nesciunt doloremque hic eum voluptas esse! Modi, id? Quas cumque veritatis, nobis inventore maxime dicta velit.</p>
+        <p>HELLO CODERS....</p>
+        <p>HELLO CODERS....</p>
+        <p>HELLO CODERS....</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Shadows & Outlines</title>
+    <style>
+      div {
+        padding: 10px;
+        margin: 20px;
+      }
+      .box {
+        box-shadow: 10px 10px 20px black;
+      }
+      .insetbox {
+        box-shadow: 5px 5px 10px black inset;
+      }
+      .text {
+        text-shadow: 10px 10px 10px red;
+      }
+      .outline {
+        border: 5px solid black;
+        outline: dotted 5px red;
+        outline-offset: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1 class="text">Hello Coders.....</h1>
+    </div>
+    <div class="insetbox">
+      <h1 class="text">Hello Coders.....</h1>
+    </div>
+    <div class="outline">
+      <h1 class="text">Hello Coders.....</h1>
+    </div>
+  </body>
+</html>

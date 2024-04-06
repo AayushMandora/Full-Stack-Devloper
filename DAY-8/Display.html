@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0" />
+    <title>Display Property</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        border: 10px solid;
+      }
+      .first {
+        display: inline;
+        margin: 20px;
+      }
+      /* if you set display as inline 
+      then it ignore top margin & padding  */
+
+      /* So if you want to use margin & 
+      padding then use display inline-block */
+      .other {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px;
+      }
+      .span {
+        border: 10px solid;
+        display: block;
+      }
+      .container{
+        display: flex;
+        /* display: grid; */
+      }
+      /* I will study in deep about display flex & grid at later */
+    </style>
+  </head>
+  <body>
+    <div class="first">THIS IS ONE DIV</div>
+    <div class="other">THIS IS ANOTHER DIV</div>
+    <span class="span">THIS IS SPAN</span>
+    <span class="container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </span>
+  </body>
+</html>

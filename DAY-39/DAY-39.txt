@@ -1,0 +1,1 @@
+Just install Mongo DB AND understand mongo DB GUI compass software.

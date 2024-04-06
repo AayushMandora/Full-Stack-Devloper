@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+}
+.box{
+    border: 10px solid black;
+    padding: 20px;
+    margin: 20px;
+    background-color: aqua;
+    /* box-sizing: border-box; */
+}
+.font{
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 50px;
+    font-weight:900;
+    text-decoration: underline dotted aqua 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.color{
+    color: red;
+    /* color: #00ffff;
+    color: rgb(185, 34, 185);
+    color: rgba(185, 255, 150, 70); */
+    background-color: yellow;
+}

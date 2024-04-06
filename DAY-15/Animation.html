@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - ANIMATION</title>
+    <style>
+        .container{
+            width: 70vw;
+            height: 50vh;
+            border: 2px solid black;
+        }
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: aquamarine;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* animation: box1 3s ease-in-out 1s 3; */
+            animation: box1 3s ease-in-out 1s 3 forwards,
+                       box2 3s ease-in-out 1s infinite;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: aquamarine;
+            animation: box2 3s ease-in-out 1s infinite;
+        }
+        @keyframes box1 {
+            from{
+
+            }
+            to{
+                transform: translate(500px,200px);
+            }
+        }
+        @keyframes box2 {
+            0%{
+                background-color: green;
+            }
+            30%{
+                background-color: aqua;
+            }
+            50%{
+                background-color: blue;
+            }
+            100%{
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERT & REMOVE Element using JS</title>
+</head>
+<body>
+    <div class="container red bg text">
+        <div style="background-color: aqua;" class="box">Hello coders.....</div>
+        <div class="box">How are you?</div>
+    </div>
+    <script>
+        document.querySelector(".container").innerHTML;
+        document.querySelector(".container").outerHTML;
+
+        // document.querySelector(".container").innerText;
+        // document.querySelector(".container").firstElementChild.innerHTML="Hello";
+        // document.querySelector(".container").hidden=true;
+
+        // Attribute methods
+        document.querySelector(".box").hasAttribute('style');
+        document.querySelector(".box").getAttribute('style');
+        document.querySelector(".box").setAttribute('style',"color:red");
+        document.querySelector(".box").attributes;
+        document.querySelector(".box").removeAttribute("style");
+    </script>
+    <script src="create.js"></script>
+</body>
+</html>

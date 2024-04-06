@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - OBJECT FIT & POSITION</title>
+    <style>
+        .box{
+            width: 30vw;
+            height: 50vh;
+            border: 2px solid black;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            /* object-fit: contain; */
+            /* object-fit: fill; */
+            /* object-position: top left; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="img.jpg" alt="">
+    </div>
+</body>
+</html>
