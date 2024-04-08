@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.nav{
+  display: flex;
+  gap: 30px;
+  font-size: 25px;
+  background-color: black;
+  padding: 10px;
+}
+.nav > li{
+  list-style-type: none;
+}
+.link{
+  text-decoration: none;
+  color: white;
+}
+.div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 30px;
+}
