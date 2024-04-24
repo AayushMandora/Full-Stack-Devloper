@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [form, setform] = useState({ site: "", username: "", pass: "" });
@@ -11,13 +11,12 @@ function App() {
   useEffect(() => {
     let passwords = localStorage.getItem("passwords");
     if (passwords) {
-      let Passwords = JSON.parse(localStorage.getItem("passwords"));
-      setPasswords(Passwords);
+      setPasswords(JSON.parse(passwords));
     }
   }, []);
 
   const storetoloc = () => {
-    localStorage.setItem("passwords", JSON.stringify(Passwords));
+    localStorage.setItem("passwords", JSON.stringify([...Passwords, { form, id: uuidv4() }]));
   };
 
   const handlechange = (e) => {
@@ -25,8 +24,8 @@ function App() {
   };
 
   const save = () => {
-    setPasswords([...Passwords, { form ,id:uuidv4()}]);
-    toast.success('Password Saved', {
+    setPasswords([...Passwords, { form, id: uuidv4()}]);
+    toast.success("Password Saved", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -35,24 +34,28 @@ function App() {
       draggable: true,
       progress: undefined,
       theme: "dark",
-      });
-    setform({site:"",username:"",pass:""});
+    });
+    setform({ site: "", username: "", pass: "" });
     storetoloc();
   };
 
-  const edit=(e)=>{
-    let index=Passwords.findIndex(item=>{
+  const edit = (e) => {
+    let index = Passwords.findIndex((item) => {
       return item.id === e;
     });
     setform(Passwords[index].form);
     Delete(e);
-  }
-  const Delete=(e)=>{
-    let passwords=Passwords.filter(item=>{
+  };
+  const Delete = (e) => {
+    let passwords = Passwords.filter((item) => {
       return item.id !== e;
     });
     setPasswords(passwords);
-    storetoloc();
+    localStorage.setItem("passwords",JSON.stringify(passwords));
+  };
+
+  const copy=(text)=>{
+    navigator.clipboard.writeText(text);
   }
 
   return (
@@ -99,7 +102,9 @@ function App() {
             />
             <button
               className="bg-[#9BB1FF] w-[30%] font-extrabold"
-              onClick={()=>{save()}}
+              onClick={() => {
+                save();
+              }}
             >
               SAVE
             </button>
@@ -124,16 +129,53 @@ function App() {
                     className="font-bold text-center bg-[#E2FDFF]"
                   >
                     <td>
+                      <div className="flex items-center justify-center">
                       <a href={item.form.site} target="_blank">
-                        {item.form.site}
+                        {item.form.site}{" "}
                       </a>
+                        <button onClick={()=>{copy(item.form.site)}}>
+                          <span className="material-symbols-outlined">
+                            content_copy
+                          </span>
+                        </button>
+                      </div>
                     </td>
-                    <td>{item.form.username}</td>
-                    <td>{item.form.pass}</td>
+                    <td>
+                      <div className="flex items-center justify-center">
+                      {item.form.username}{" "}
+                      <button onClick={()=>{copy(item.form.username)}}>
+                        <span className="material-symbols-outlined">
+                          content_copy
+                        </span>
+                      </button>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="flex items-center justify-center">
+                      {item.form.pass}{" "}
+                      <button onClick={()=>{copy(item.form.pass)}}>
+                        <span className="material-symbols-outlined">
+                          content_copy
+                        </span>
+                      </button>
+                      </div>
+                    </td>
                     <td>
                       <div className="flex gap-3 justify-center">
-                        <button onClick={()=>{edit(item.id)}}>Edit</button>
-                        <button onClick={()=>{Delete(item.id)}}>Delete</button>
+                        <button
+                          onClick={() => {
+                            edit(item.id);
+                          }}
+                        >
+                          <span className="material-symbols-outlined">edit</span>
+                        </button>
+                        <button
+                          onClick={() => {
+                            Delete(item.id);
+                          }}
+                        >
+                          <span className="material-symbols-outlined">delete</span>
+                        </button>
                       </div>
                     </td>
                   </tr>
