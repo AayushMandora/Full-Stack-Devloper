@@ -1,15 +1,14 @@
 "use client"
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from "next/navigation";
 
 const page = () => {
-    // const { data: session } = useSession()
-    // if(session) {
-    //     return <>
-    //       Signed in as {session.user.email} <br/>
-    //       <button onClick={() => signOut()}>Sign out</button>
-    //     </>
-    // }
+    const { data: session } = useSession()
+    if(session) {
+        const router=useRouter();
+        router.push('/profile')
+    }
   return (
     <>
     <div className="font-semibold text-xl text-center mt-20">Login to Get your fans to support you</div>
