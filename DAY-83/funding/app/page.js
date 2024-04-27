@@ -2,7 +2,7 @@
 export default function Home() {
   return (
     <>
-      <div className="flex justify-center items-center flex-col gap-3 h-[85vh]">
+      <div className="flex justify-center items-center flex-col gap-3 h-[83vh]">
         <div className="w-[30%] text-[50px] text-center font-bold">
           Fund your creative work
         </div>

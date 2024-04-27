@@ -2,6 +2,7 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
+import Github from "next-auth/providers/github";
 
 const page = () => {
     const { data: session } = useSession()
@@ -11,8 +12,9 @@ const page = () => {
     }
   return (
     <>
-    <div className="font-semibold text-xl text-center mt-20">Login to Get your fans to support you</div>
-    <div className="flex flex-col gap-2 h-auto p-10 justify-center items-center">
+    <div className="flex flex-col justify-center h-[83vh] gap-3">
+    <div className="font-semibold text-xl text-center">Login to Get your fans to support you</div>
+    <div className="flex flex-col gap-2 justify-center p-10 items-center">
       <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
         <svg
           className="h-6 w-6 mr-2"
@@ -24,9 +26,9 @@ const page = () => {
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g id="Color-" transform="translate(-401.000000, -860.000000)">
               <g id="Google" transform="translate(401.000000, 860.000000)">
@@ -76,9 +78,9 @@ const page = () => {
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -106,9 +108,9 @@ const page = () => {
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -137,9 +139,9 @@ const page = () => {
           <g
             id="Icons"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Color-"
@@ -157,7 +159,7 @@ const page = () => {
         <span>Continue with Facebook</span>
       </button>
 
-      <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={()=>{signIn("github")}}>
+      <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onClick={()=>{signIn('Github')}}>
         <svg
           className="h-6 w-6 mr-2"
           xmlns="http://www.w3.org/2000/svg"
@@ -168,19 +170,19 @@ const page = () => {
           <g
             id="team-collaboration/version-control/github"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="container"
               transform="translate(2.000000, 2.000000)"
-              fill-rule="nonzero"
+              fillRule="nonzero"
             >
               <rect
                 id="mask"
                 stroke="#000000"
-                stroke-width="2"
+                strokeWidth="2"
                 fill="#000000"
                 x="-1"
                 y="-1"
@@ -211,9 +213,9 @@ const page = () => {
           <g
             id="Page-1"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           >
             <g
               id="Dribbble-Light-Preview"
@@ -232,6 +234,7 @@ const page = () => {
 
         <span>Continue with Apple</span>
       </button>
+    </div>
     </div>
     </>
   );

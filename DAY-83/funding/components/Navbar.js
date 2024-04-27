@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { sendError } from "next/dist/server/api-utils";
 const Navbar = () => {
   const { data: session } = useSession();
   const [showdrop, setshowdrop] = useState(false);
@@ -61,7 +60,7 @@ const Navbar = () => {
               >
                 <li>
                   <Link
-                    href="/Profile"
+                    href="/profile"
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Profile
