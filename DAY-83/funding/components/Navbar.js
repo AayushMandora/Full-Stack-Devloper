@@ -5,12 +5,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 const Navbar = () => {
   const { data: session } = useSession();
   const [showdrop, setshowdrop] = useState(false);
-  // if(session) {
-  //     return <>
-  //       Signed in as {session.user.email} <br/>
-  //       <button onClick={() => signOut()}>Sign out</button>
-  //     </>
-  // }
 
   return (
     <div className="flex justify-between p-3 items-center">
