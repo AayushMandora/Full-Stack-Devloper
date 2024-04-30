@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "fs": "^0.0.2-security",
     "mongoose": "^8.3.2",
+    "net": "^1.0.2",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
-    "razorpay": "^0.0.0",
+    "razorpay": "^2.9.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
+    "encoding": "^0.1.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "postcss": "^8",

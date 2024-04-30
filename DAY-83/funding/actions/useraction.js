@@ -4,20 +4,19 @@ import payment from "@/models/payment";
 import user from "@/models/user";
 import connectDB from "@/models/mongoDb";
 
-export const initiate = async (amount, to_username, paymentform) => {
+export const initiate = async (amount, to_username) => {
   await connectDB();
   var instance = new Razorpay({
-    key_id: "YOUR_KEY_ID",
-    key_secret: "YOUR_SECRET",
+    key_id:"KEY_ID",
+    key_secret: "KEY_SECRET",
   });
   var options = {
     amount: Number.parseInt(amount), // amount in the smallest currency unit
     currency: "INR",
-    receipt: "order_rcptid_11",
   };
   let x = instance.orders.create(options);
 
-  await payment.create({ oid: x.id, amount: amount, to_user: to_username, name:paymentform.name, message: paymentform.message});
+  await payment.create({ oid: x.id, amount: amount, to_user: to_username, name:"Aayush", message: "Hello"});
 
   return x;
 };
