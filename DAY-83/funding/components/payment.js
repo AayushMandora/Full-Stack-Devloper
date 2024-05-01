@@ -1,15 +1,33 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Script from "next/script";
 import Razorpay from "razorpay";
-import { initiate } from "@/actions/useraction";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { fetchPayments, initiate } from "@/actions/useraction";
+import { fetchuser } from "@/actions/useraction";
 
 const Payment = ({ params }) => {
-  const { data: session } = useSession();
-  const pay = async(amount) => {
-    let a=await initiate(amount,"Aayush");
-    
+  const [paymentform, setpaymentform] = useState({});
+  const [currentUser, setcurrentUser] = useState({});
+  const [payments, setpayments] = useState([]);
+
+  const handlechange = (e) => {
+    setpaymentform({ ...paymentform, [e.target.name]: e.target.value });
+  };
+  
+  const getdata = async () => {
+    let u = await fetchuser(params.username);
+    setcurrentUser(u);
+    let dbpayments=await fetchPayments(params.username);
+    setpayments(dbpayments);
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
+
+
+  const pay = async (amount) => {
+    let a = await initiate(amount, params.username, paymentform);
     var options = {
       key: "KEY_ID", // Enter the Key ID generated from the Dashboard
       amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -37,7 +55,6 @@ const Payment = ({ params }) => {
   };
   return (
     <>
-      <button id="rzp-button1">Pay</button>
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
       <div>
         <div className="object-cover flex flex-col items-center">
@@ -59,7 +76,7 @@ const Payment = ({ params }) => {
             <h2 className="text-xl font-semibold">@{params.username}</h2>
             <h2 className="text-white/70">Full Stack Web-devloper</h2>
             <div className="flex gap-2 text-white/50">
-              <p>10,667 members</p> -<p>83 posts</p> -<p>$15,670/release</p>
+              <p>10,667 members</p> -<p>83 posts</p> -<p>₹15,670/release</p>
             </div>
           </div>
         </div>
@@ -67,33 +84,16 @@ const Payment = ({ params }) => {
           <div className="suppoters bg-white/15 w-1/2 p-4  rounded-xl">
             <h2 className=" text-xl font-bold">Supporters</h2>
             <ul className=" mt-3 flex flex-col gap-3">
-              <li className="flex gap-2 items-center">
+              {payments.map((p,i)=>{
+                return <li key={i} className="flex gap-2 items-center">
                 <img
                   className="size-10 object-cover rounded-full"
                   src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
                   alt=""
                 />
-                Aafi Donated <span className="font-bold">$5</span> Message "I
-                Support You Bro.❤️"
+                {p.name} Donated <span className="font-bold">{p.amount}</span> {p.message}
               </li>
-              <li className="flex gap-2 items-center">
-                <img
-                  className="size-10 object-cover rounded-full"
-                  src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
-                  alt=""
-                />
-                Himesh Donated <span className="font-bold">$5</span> Message "I
-                Support You Bro.❤️"
-              </li>
-              <li className="flex gap-2 items-center">
-                <img
-                  className="size-10 object-cover rounded-full"
-                  src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
-                  alt=""
-                />
-                Nirav Donated <span className="font-bold">$5</span> Message "I
-                Support You Bro.❤️"
-              </li>
+              })}
             </ul>
           </div>
           <div className="payment bg-white/15 w-1/2 flex flex-col items-center gap-2 p-4 rounded-xl">
@@ -104,20 +104,25 @@ const Payment = ({ params }) => {
               <input
                 className="rounded-lg p-2 bg-transparent border focus:outline-none"
                 type="text"
+                name="name"
                 placeholder="Enter Name"
+                value={paymentform.name}
+                onChange={handlechange}
               />
               <textarea
                 className="rounded-lg bg-transparent p-2 border focus:outline-none"
-                name=""
+                name="message"
                 id=""
                 cols="30"
                 rows="5"
                 placeholder="Say something nice"
+                value={paymentform.message}
+                onChange={handlechange}
               ></textarea>
             </div>
             <button
               onClick={() => {
-                pay(10000);
+                pay(100);
               }}
               className="px-4 p-2 w-full rounded-2xl bg-gradient-to-br from-blue-600 to-purple-700 font-bold"
             >
