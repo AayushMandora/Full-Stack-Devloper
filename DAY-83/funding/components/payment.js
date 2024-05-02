@@ -91,7 +91,7 @@ const Payment = ({ params }) => {
                   src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
                   alt=""
                 />
-                {p.name} Donated <span className="font-bold">{p.amount}</span> {p.message}
+                {p.name} Donated <span className="font-bold">₹{p.amount}</span> {p.message}
               </li>
               })}
             </ul>

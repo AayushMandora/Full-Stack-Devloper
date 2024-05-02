@@ -7,6 +7,8 @@ const userschema= new Schema({
     username:{type:String},
     profilepic:{type:String},
     coverpic:{type:String},
+    razorpayID:{type:String},
+    razorpaySECRET:{type:String},
 });
 
 export default mongoose.models.User || model('User',userschema);

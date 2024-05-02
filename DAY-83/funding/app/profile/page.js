@@ -1,19 +1,45 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { updateprofile } from "@/actions/useraction";
+import { fetchuser } from "@/actions/useraction";
+
 const profile = () => {
   const { data: session } = useSession();
-  if (!session) {
-    const router = useRouter();
-    router.push("/login");
+  const [data, setdata] = useState({});
+
+  const handlechange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+  };
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+    else{
+      getdata();
+    }
+  }, [router]);
+  
+
+  const getdata=async ()=>{
+    let u = await fetchuser(session.user.name);
+    setdata(u);
   }
+
+  const handlesubmit=async (e)=>{
+    let a=await updateprofile(session.user.name,e);
+    alert("Profile successfully Updated");
+  }
+
   return (
     <div className="h-[83vh] flex flex-col items-center justify-center gap-3">
     <div className="font-semibold text-xl text-center">Welcome to Your Profile</div>
       <div className="w-[50vw]">
-        <form className="max-w-md mx-auto">
-          <div className="relative z-0 w-full mb-5 group">
+        <form className="max-w-md mx-auto" action={handlesubmit}>
+          {/* <div className="relative z-0 w-full mb-5 group">
             <input
               type="text"
               name="floating_name"
@@ -28,14 +54,16 @@ const profile = () => {
             >
               Name
             </label>
-          </div>
+          </div> */}
           <div className="relative z-0 w-full mb-5 group">
             <input
               type="email"
-              name="floating_email"
+              name="email"
+              value={data.email?data.email:""}
               id="floating_email"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
+              onChange={handlechange}
               required
             />
             <label
@@ -48,10 +76,12 @@ const profile = () => {
           <div className="relative z-0 w-full mb-5 group">
             <input
               type="text"
-              name="floating_username"
+              name="username"
+              value={data.username?data.username:""}
               id="floating_username"
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
+              onChange={handlechange}
               required
             />
             <label
@@ -64,10 +94,12 @@ const profile = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_profile"
+                name="profilepic"
+                value={data.profilepic?data.profilepic:""}
                 id="floating_profile"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                onChange={handlechange}
                 required
               />
               <label
@@ -80,10 +112,12 @@ const profile = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_cover"
+                name="coverpic"
+                value={data.coverpic?data.coverpic:""}
                 id="floating_cover"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                onChange={handlechange}
                 required
               />
               <label
@@ -96,10 +130,12 @@ const profile = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_pay_id"
+                name="razorpayID"
+                value={data.razorpayID?data.razorpayID:""}
                 id="floating_pay_id"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                onChange={handlechange}
                 required
               />
               <label
@@ -112,10 +148,12 @@ const profile = () => {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="floating_pay_Secret"
+                name="razorpaySECRET"
+                value={data.razorpaySECRET?data.razorpaySECRET:""}
                 id="floating_pay_Secret"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
+                onChange={handlechange}
                 required
               />
               <label
