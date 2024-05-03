@@ -4,6 +4,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { updateprofile } from "@/actions/useraction";
 import { fetchuser } from "@/actions/useraction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const profile = () => {
   const { data: session } = useSession();
@@ -17,29 +19,51 @@ const profile = () => {
   useEffect(() => {
     if (!session) {
       router.push("/login");
-    }
-    else{
+    } else {
       getdata();
     }
-  }, [router]);
-  
+  }, [router, session]);
 
-  const getdata=async ()=>{
+  const getdata = async () => {
     let u = await fetchuser(session.user.name);
     setdata(u);
-  }
+  };
 
-  const handlesubmit=async (e)=>{
-    let a=await updateprofile(session.user.name,e);
-    alert("Profile successfully Updated");
-  }
+  const handlesubmit = async (e) => {
+    let a = await updateprofile(session.user.name, e);
+    toast.success("Profile Updated Successfully", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
 
   return (
-    <div className="h-[83vh] flex flex-col items-center justify-center gap-3">
-    <div className="font-semibold text-xl text-center">Welcome to Your Profile</div>
-      <div className="w-[50vw]">
-        <form className="max-w-md mx-auto" action={handlesubmit}>
-          {/* <div className="relative z-0 w-full mb-5 group">
+    <>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="dark"
+      />
+      <div className="h-[83vh] flex flex-col items-center justify-center gap-3">
+        <div className="font-semibold text-xl text-center">
+          Welcome to Your Profile
+        </div>
+        <div className="w-[50vw]">
+          <form className="max-w-md mx-auto" action={handlesubmit}>
+            {/* <div className="relative z-0 w-full mb-5 group">
             <input
               type="text"
               name="floating_name"
@@ -55,47 +79,47 @@ const profile = () => {
               Name
             </label>
           </div> */}
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="email"
-              name="email"
-              value={data.email?data.email:""}
-              id="floating_email"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              onChange={handlechange}
-              required
-            />
-            <label
-              htmlFor="floating_email"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Email
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="text"
-              name="username"
-              value={data.username?data.username:""}
-              id="floating_username"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-              placeholder=" "
-              onChange={handlechange}
-              required
-            />
-            <label
-              htmlFor="floating_username"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Username
-            </label>
-          </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="email"
+                name="email"
+                value={data.email ? data.email : ""}
+                id="floating_email"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                onChange={handlechange}
+                required
+              />
+              <label
+                htmlFor="floating_email"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Email
+              </label>
+            </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="username"
+                value={data.username ? data.username : ""}
+                id="floating_username"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                placeholder=" "
+                onChange={handlechange}
+                required
+              />
+              <label
+                htmlFor="floating_username"
+                className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Username
+              </label>
+            </div>
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
                 name="profilepic"
-                value={data.profilepic?data.profilepic:""}
+                value={data.profilepic ? data.profilepic : ""}
                 id="floating_profile"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -113,7 +137,7 @@ const profile = () => {
               <input
                 type="text"
                 name="coverpic"
-                value={data.coverpic?data.coverpic:""}
+                value={data.coverpic ? data.coverpic : ""}
                 id="floating_cover"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -131,7 +155,7 @@ const profile = () => {
               <input
                 type="text"
                 name="razorpayID"
-                value={data.razorpayID?data.razorpayID:""}
+                value={data.razorpayID ? data.razorpayID : ""}
                 id="floating_pay_id"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -149,7 +173,7 @@ const profile = () => {
               <input
                 type="text"
                 name="razorpaySECRET"
-                value={data.razorpaySECRET?data.razorpaySECRET:""}
+                value={data.razorpaySECRET ? data.razorpaySECRET : ""}
                 id="floating_pay_Secret"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -163,15 +187,16 @@ const profile = () => {
                 Razorpay Secret
               </label>
             </div>
-          <button
-            type="submit"
-            className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none text-sm w-full px-5 py-2.5 text-center p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold"
-          >
-            Save
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none text-sm w-full px-5 py-2.5 text-center p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold"
+            >
+              Save
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

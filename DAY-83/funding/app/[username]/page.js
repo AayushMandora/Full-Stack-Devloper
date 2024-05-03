@@ -1,7 +1,20 @@
-"use client"
 import React from "react";
 import Payment from "@/components/payment";
-const username = ({ params }) => {
+import connectDB from "@/models/mongoDb";
+import { notFound } from "next/navigation";
+import user from "@/models/user";
+
+const username =async ({ params }) => {
+
+  const checkuser=async()=>{
+    await connectDB();
+    let u=await user.findOne({username:params.username});
+    if(!u){
+      return notFound()
+    }    
+  }
+  await checkuser();
+
   return (
     <Payment params={params}/>
   );

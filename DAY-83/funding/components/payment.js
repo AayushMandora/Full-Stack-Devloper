@@ -13,18 +13,17 @@ const Payment = ({ params }) => {
   const handlechange = (e) => {
     setpaymentform({ ...paymentform, [e.target.name]: e.target.value });
   };
-  
+
   const getdata = async () => {
     let u = await fetchuser(params.username);
     setcurrentUser(u);
-    let dbpayments=await fetchPayments(params.username);
+    let dbpayments = await fetchPayments(params.username);
     setpayments(dbpayments);
   };
 
   useEffect(() => {
     getdata();
   }, []);
-
 
   const pay = async (amount) => {
     let a = await initiate(amount, params.username, paymentform);
@@ -60,7 +59,7 @@ const Payment = ({ params }) => {
         <div className="object-cover flex flex-col items-center">
           <img
             className="object-cover w-full h-[350px]"
-            src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
+            src={currentUser.profilepic}
             alt=""
           />
         </div>
@@ -68,12 +67,12 @@ const Payment = ({ params }) => {
           <div className="size-28 rounded-xl">
             <img
               className="size-full object-cover rounded-xl"
-              src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
+              src={currentUser.coverpic}
               alt=""
             />
           </div>
           <div className="flex flex-col items-center">
-            <h2 className="text-xl font-semibold">@{params.username}</h2>
+            <h2 className="text-xl font-semibold">@{currentUser.username}</h2>
             <h2 className="text-white/70">Full Stack Web-devloper</h2>
             <div className="flex gap-2 text-white/50">
               <p>10,667 members</p> -<p>83 posts</p> -<p>₹15,670/release</p>
@@ -84,15 +83,20 @@ const Payment = ({ params }) => {
           <div className="suppoters bg-white/15 w-1/2 p-4  rounded-xl">
             <h2 className=" text-xl font-bold">Supporters</h2>
             <ul className=" mt-3 flex flex-col gap-3">
-              {payments.map((p,i)=>{
-                return <li key={i} className="flex gap-2 items-center">
-                <img
-                  className="size-10 object-cover rounded-full"
-                  src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
-                  alt=""
-                />
-                {p.name} Donated <span className="font-bold">₹{p.amount}</span> {p.message}
-              </li>
+              {payments.length == 0 && <li>No Payments Yet</li>}
+              {payments.map((p, i) => {
+                return (
+                  <li key={i} className="flex gap-2 items-center">
+                    <img
+                      className="size-10 object-cover rounded-full"
+                      src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
+                      alt=""
+                    />
+                    <span className="font-bold">{p.name}</span> Donated{" "}
+                    <span className="font-bold">₹{p.amount}</span>With message "
+                    {p.message}"
+                  </li>
+                );
               })}
             </ul>
           </div>
