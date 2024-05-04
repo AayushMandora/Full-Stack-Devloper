@@ -6,9 +6,13 @@ import connectDB from "@/models/mongoDb";
 
 export const initiate = async (amount, to_username, paymentform) => {
   await connectDB();
+
+  let u = await user.findOne({ username: to_username });
+  let userr = u.toObject({ flattenObjectIds: true });
+  
   var instance = new Razorpay({
-    key_id: "KEY_ID",
-    key_secret: "KEY_SECRET",
+    key_id: userr.razorpayID,
+    key_secret: userr.razorpaySECRET,
   });
   var options = {
     amount: Number.parseInt(amount),

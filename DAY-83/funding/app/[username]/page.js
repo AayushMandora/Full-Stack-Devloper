@@ -21,3 +21,9 @@ const username =async ({ params }) => {
 };
 
 export default username;
+
+export async function generateMetadata( {params}) {
+  return {
+    title: `${params.username} - Funding`,
+  }
+}

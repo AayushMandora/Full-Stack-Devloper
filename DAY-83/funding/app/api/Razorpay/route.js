@@ -12,7 +12,7 @@ export const POST=async (req)=>{
         return NextResponse.json({success:false,message:"Order id not Found"});
     }
     
-    let x=validatePaymentVerification({"order_id":body.razorpay_order_id,"payment_id":body.razorpay_payment_id},body.razorpay_signature,"YOUR_ID");
+    let x=validatePaymentVerification({"order_id":body.razorpay_order_id,"payment_id":body.razorpay_payment_id},body.razorpay_signature,"Your KEY ID");
 
     if(x){
         const updatePayment=await payment.findOneAndUpdate({oid:body.razorpay_order_id},{done:true},{new:true});

@@ -2,14 +2,20 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const page = () => {
   
   const { data: session } = useSession();
-  if (session) {
-    const router = useRouter();
-    router.push(`/profile`);
-  }
+  const router = useRouter();
+  
+  useEffect(() => {
+    document.title="Login - Funding"
+    if (session) {
+      router.push("/profile");
+    }
+  }, [router, session]);
+
   return (
     <>
       <div className="flex flex-col justify-center h-[83vh] gap-3">

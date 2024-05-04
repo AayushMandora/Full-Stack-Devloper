@@ -28,7 +28,7 @@ const Payment = ({ params }) => {
   const pay = async (amount) => {
     let a = await initiate(amount, params.username, paymentform);
     var options = {
-      key: "KEY_ID", // Enter the Key ID generated from the Dashboard
+      key: currentUser.razorpayID, // Enter the Key ID generated from the Dashboard
       amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       currency: "INR",
       name: "Acme Corp", //your business name

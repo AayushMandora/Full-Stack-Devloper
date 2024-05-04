@@ -10,13 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 const profile = () => {
   const { data: session } = useSession();
   const [data, setdata] = useState({});
+  const router = useRouter();
 
   const handlechange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
-  const router = useRouter();
 
   useEffect(() => {
+    document.title="Profile - Funding"
     if (!session) {
       router.push("/login");
     } else {
@@ -153,7 +154,7 @@ const profile = () => {
             </div>
             <div className="relative z-0 w-full mb-5 group">
               <input
-                type="text"
+                type="password"
                 name="razorpayID"
                 value={data.razorpayID ? data.razorpayID : ""}
                 id="floating_pay_id"
@@ -171,7 +172,7 @@ const profile = () => {
             </div>
             <div className="relative z-0 w-full mb-5 group">
               <input
-                type="text"
+                type="password"
                 name="razorpaySECRET"
                 value={data.razorpaySECRET ? data.razorpaySECRET : ""}
                 id="floating_pay_Secret"
