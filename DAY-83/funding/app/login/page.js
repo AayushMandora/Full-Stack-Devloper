@@ -23,7 +23,7 @@ const page = () => {
           Login to Get your fans to support you
         </div>
         <div className="flex flex-col gap-2 justify-center p-10 items-center">
-          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg
               className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const page = () => {
             <span>Continue with Google</span>
           </button>
 
-          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg
               className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const page = () => {
             <span>Continue with LinkedIn</span>
           </button>
 
-          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg
               className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ const page = () => {
             <span>Continue with Twitter</span>
           </button>
 
-          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg
               className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ const page = () => {
           </button>
 
           <button
-            className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             onClick={() => {
               signIn("github");
             }}
@@ -215,7 +215,7 @@ const page = () => {
             <span>Continue with Github</span>
           </button>
 
-          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+          <button className="flex items-center border border-gray-300 rounded-lg shadow-md w-[80%] md:w-[20%] bg-white px-6 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
             <svg
               className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"

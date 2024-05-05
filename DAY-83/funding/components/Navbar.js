@@ -18,7 +18,7 @@ const Navbar = () => {
             <button
               id="dropdownDefaultButton"
               data-dropdown-toggle="dropdown"
-              className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none text-sm py-2.5 text-center inline-flex items-center px-4 p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold" 
+              className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none text-sm md:py-2.5 text-center inline-flex items-center px-2 w-[95%] ml-1 md:ml-0 md:w-auto md:px-4 md:p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold" 
               type="button"
               onClick={() => {
                 setshowdrop(!showdrop);
@@ -83,7 +83,7 @@ const Navbar = () => {
         )}
         {session && (
           <button
-            className="px-4 p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold"
+            className="px-4 p-2 rounded-lg bg-gradient-to-br from-blue-600 to-purple-700 font-bold hidden md:block"
             onClick={() => signOut()}
           >
             Logout

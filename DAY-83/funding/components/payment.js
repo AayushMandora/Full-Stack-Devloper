@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Script from "next/script";
-import Razorpay from "razorpay";
 import { fetchPayments, initiate } from "@/actions/useraction";
 import { fetchuser } from "@/actions/useraction";
 
@@ -22,39 +20,47 @@ const Payment = ({ params }) => {
   };
 
   useEffect(() => {
+      try{
+        const script = document.createElement("script");
+        script.src="https://checkout.razorpay.com/v1/checkout.js";
+        script.async=true;
+        document.body.appendChild(script);
+      }catch(e){
+        console.log("Razorpay Script Not Load"+e);
+      }
     getdata();
   }, []);
 
   const pay = async (amount) => {
     let a = await initiate(amount, params.username, paymentform);
     var options = {
-      key: currentUser.razorpayID, // Enter the Key ID generated from the Dashboard
-      amount: amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      currency: "INR",
-      name: "Acme Corp", //your business name
-      description: "Test Transaction",
-      image: "https://example.com/your_logo",
-      // order_id: a.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      callback_url: "http://localhost:3000/api/razorpay",
-      prefill: {
+      "key": "rzp_test_lKHzmeBUG4H3lQ", // Enter the Key ID generated from the Dashboard
+      "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "Funding", //your business name
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": a.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "callback_url": `${process.env.NEXT_PUBLIC_URL}/api/razorpay`,
+      "prefill": {
         //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-        name: "Gaurav Kumar", //your customer's name
-        email: "gaurav.kumar@example.com",
-        contact: "9000090000", //Provide the customer's phone number for better conversion rates
+        "name": "Gaurav Kumar", //your customer's name
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000", //Provide the customer's phone number for better conversion rates
       },
-      notes: {
+      "notes": {
         address: "Razorpay Corporate Office",
       },
-      theme: {
+      "theme": {
         color: "#3399cc",
       },
     };
-    var rzp1 = new Razorpay(options);
+    var rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
+
   return (
     <>
-      <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
       <div>
         <div className="object-cover flex flex-col items-center">
           <img
@@ -79,17 +85,17 @@ const Payment = ({ params }) => {
             </div>
           </div>
         </div>
-        <div className="payments flex gap-3 w-[80vw] m-auto mt-10">
-          <div className="suppoters bg-white/15 w-1/2 p-4  rounded-xl">
+        <div className="payments flex flex-col md:flex-row gap-3 w-[80vw] m-auto mt-10">
+          <div className="suppoters bg-white/15 md:w-1/2 p-4  rounded-xl">
             <h2 className=" text-xl font-bold">Supporters</h2>
             <ul className=" mt-3 flex flex-col gap-3">
               {payments.length == 0 && <li>No Payments Yet</li>}
               {payments.map((p, i) => {
                 return (
-                  <li key={i} className="flex gap-2 items-center">
+                  <li key={i} className="flex gap-2 flex-wrap items-center">
                     <img
-                      className="size-10 object-cover rounded-full"
-                      src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg"
+                      className="size-7 object-cover rounded-full"
+                      src="https://w7.pngwing.com/pngs/831/88/png-transparent-user-profile-computer-icons-user-interface-mystique-miscellaneous-user-interface-design-smile-thumbnail.png"
                       alt=""
                     />
                     <span className="font-bold">{p.name}</span> Donated{" "}
@@ -100,7 +106,7 @@ const Payment = ({ params }) => {
               })}
             </ul>
           </div>
-          <div className="payment bg-white/15 w-1/2 flex flex-col items-center gap-2 p-4 rounded-xl">
+          <div className="payment bg-white/15 md:w-1/2 flex flex-col items-center gap-2 p-4 rounded-xl">
             <h2 className="w-full text-center text-xl font-bold">
               Support {params.username}
             </h2>
@@ -126,7 +132,7 @@ const Payment = ({ params }) => {
             </div>
             <button
               onClick={() => {
-                pay(100);
+                pay(10000);
               }}
               className="px-4 p-2 w-full rounded-2xl bg-gradient-to-br from-blue-600 to-purple-700 font-bold"
             >

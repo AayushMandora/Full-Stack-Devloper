@@ -1,4 +1,4 @@
-"use server";
+"use server"
 import Razorpay from "razorpay";
 import payment from "@/models/payment";
 import user from "@/models/user";
@@ -9,20 +9,22 @@ export const initiate = async (amount, to_username, paymentform) => {
 
   let u = await user.findOne({ username: to_username });
   let userr = u.toObject({ flattenObjectIds: true });
-  
+
   var instance = new Razorpay({
     key_id: userr.razorpayID,
     key_secret: userr.razorpaySECRET,
   });
+  
   var options = {
     amount: Number.parseInt(amount),
     currency: "INR",
   };
-  let x = instance.orders.create(options);
+
+  let x = await instance.orders.create(options);
 
   await payment.create({
     oid: x.id,
-    amount: amount,
+    amount: (amount/100),
     to_user: to_username,
     name: paymentform.name,
     message: paymentform.message,
